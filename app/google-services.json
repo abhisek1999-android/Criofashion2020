@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "865301857788-jrbrbs3pu3k7nfh5fgsavr4lnjupiec9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sn77.crio.criofashion.date20200621954",
+            "certificate_hash": "ba6a8219d448307686dd45ea9721648e4b370f77"
+          }
+        },
+        {
           "client_id": "865301857788-rdmjcr5p0cfrufpiclvjmg1pucvat273.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

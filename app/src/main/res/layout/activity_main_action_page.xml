@@ -4,25 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActionPage">
-
+    tools:context=".MainActionPage"
+    android:background="@color/colorPrimary">
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_navigation"/>
-
-
+        android:layout_above="@id/bottom_navigation"
+        android:background="#fff"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_navigation"
         android:layout_alignParentBottom="true"
-       app:menu="@menu/button_navigation"
-        android:background="#37474f"
+        app:menu="@menu/button_navigation"
+        android:background="@color/colorPrimary"
+        app:elevation="0dp"
         app:itemTextColor="#fff"
+        app:itemBackground="@null"
+
+        app:itemIconSize="55dp"
+        app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@color/buttom_nav_color"
         />
 

@@ -1,12 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:background="@color/colorPrimary">
 
 
-    <TextView
+    <include
+        android:id="@+id/homeAppBar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        layout="@layout/app_bar_layout"/>
+
+
+
+    <RelativeLayout
+        android:layout_below="@+id/homeAppBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:id="@+id/crioFamily">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/crio"
+            android:id="@+id/crio"/>
+
+        <ImageView
+            android:layout_below="@+id/crio"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginTop="-40dp"
+            android:src="@drawable/family"/>
+
+
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+    android:layout_below="@id/crioFamily"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    app:cardBackgroundColor="@color/colorPrimary"
+    android:id="@+id/cardId1st">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+        >
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/round_up"
+            android:id="@+id/leftRelativeLayout">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/shirtfront"/>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/leftRelativeLayout1"
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+
+            android:layout_toEndOf="@id/leftRelativeLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/futurapt_font"
+                android:textColor="#fff"
+                android:text="CriO fashion| \n It's not about fashion,it,s all about you."
+                android:textSize="14sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/futurapt_font"
+                android:textColor="#fff"
+                android:text="with the help of sponsorship we are giving you a high quality shirts at an unbelivable price.All the shirts are designed with trending topics so you can always stay updated with fashion trends.Shirts are starting from as low as 200 INR and these are high quality,top class clothes."
+                android:textSize="11sp" />
+
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        android:layout_below="@id/cardId1st"
+        android:id="@+id/cardId2nd"
+        android:layout_marginTop="3dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
+            >
+            <RelativeLayout
+                android:layout_width="145dp"
+                android:layout_height="145dp"
+                android:background="@drawable/round_down"
+                android:id="@+id/rightRelativeLayout"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/kids_image"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="250dp"
+                android:layout_height="150dp"
+                android:id="@+id/rightRelativeLayout1"
+                android:layout_toStartOf="@id/rightRelativeLayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/futurapt_font"
+                    android:text="Troos|Make the world look again"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/futurapt_font"
+                    android:text="High quality leggings for kids, youngstar and growth ups at a very affordable price. These are verity of leggings available for home.office and party use with big range of options.Leggings are starting from as low as 250 INR all of them are high quality.
+"                   android:textSize="11sp"
+                    android:textColor="#fff"
+                    android:textAlignment="viewEnd"
+                    android:layout_marginRight="10dp"/>
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
 </RelativeLayout>

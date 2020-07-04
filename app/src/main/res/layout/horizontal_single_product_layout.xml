@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="90dp"
+    android:layout_height="90dp"
+    app:cardBackgroundColor="#e4e4e4"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:background="@drawable/round_down">
+
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/difit_logo"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+
+            android:id="@+id/itemImageSmall"/>
+
+       <!-- <TextView
+            android:id="@+id/itemNameSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemImageSmall"
+            android:layout_centerHorizontal="true"
+            android:text="Item Name"
+            android:textSize="10sp"
+            android:layout_marginTop="4dp"/>-->
+
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

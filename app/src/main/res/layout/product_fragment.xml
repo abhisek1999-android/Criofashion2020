@@ -1,12 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary">
+
+    <include
+        android:id="@+id/productAppBar"
+        layout="@layout/app_bar_layout" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Product Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+    <RelativeLayout
+        android:id="@+id/layoutForSearch"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@id/productAppBar"
+        android:visibility="gone"
+       >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cardElevation="0dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_bg_color"
+                >
+        <EditText
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:id="@+id/searchItem"
+            android:hint="Ask me!"
+
+        android:layout_centerVertical="true"
+            android:background="@null"
+
+
+            />
+
+        <ImageButton
+            android:id="@+id/searchItemButton"
+            android:onClick="searchItemButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="2dp"
+            android:layout_toEndOf="@id/searchItem"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_bg_color"
+            android:src="@drawable/ic_baseline_search_24"/>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutForSearch"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/horizontalLayout"
+                android:scrollbars="none"
+
+
+               />
+
+
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+    android:layout_below="@id/horizontalLayout"
+       android:id="@+id/productList"
+
+
+       />
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

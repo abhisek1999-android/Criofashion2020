@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/user_logo_view"
+        android:src="@drawable/user_logo"
+        android:layout_marginTop="80dp"
+        />
+
+    <TextView
+        android:id="@+id/userNameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@id/user_logo_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/userEmailView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@id/userNameView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        />
+
+    <RelativeLayout
+        android:id="@+id/createOrLoginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/user_logo_view"
+        android:layout_marginTop="10dp"
+        android:visibility="gone">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome!"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:id="@+id/welcome"
+        />
+
+
+        <Button
+            android:id="@+id/loginPageIntent"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/welcome"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_background"
+            android:text="Already have an account"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+
+            android:onClick="loginPage"
+            />
+        <Button
+            android:id="@+id/signupPageIntent"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/loginPageIntent"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_bg_black"
+            android:text="Create an account"
+            android:textColor="#fff"
+            android:layout_marginTop="10dp"
+
+            android:onClick="createAccountPage"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/userEmailView"
+        android:background="#eceff1"
+        android:id="@+id/afterLoginView"
+        android:visibility="gone"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/myOrders"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders"
+                android:id="@+id/orders"
+                android:textSize="15dp"
+                android:layout_marginLeft="20dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_below="@id/orders"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+
+
+        </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/myAddress"
+            android:layout_below="@id/myOrders"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Addresses"
+                    android:id="@+id/Addresses"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="20dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_below="@id/Addresses"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/logout_user"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+          >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/logoutImage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/logout_logo"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignStart="@+id/logoutImage"
+                    android:layout_height="wrap_content"
+                    android:text="Log out"
+                    android:id="@+id/logout"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_centerVertical="true"
+                    />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/userAccount"
+         android:layout_above="@id/logout_user"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <ImageView
+                    android:id="@+id/accountSettingsImage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_baseline_settings_24"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+                    android:text="Account Settings"
+                    android:id="@+id/AccountSettings"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_centerVertical="true"
+                    />
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+
+<!-- ph number ,payment option-->
