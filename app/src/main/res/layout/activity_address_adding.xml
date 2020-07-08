@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddressAddingActivity">
+
+    <include layout="@layout/app_bar_layout"
+        android:id="@+id/addressAppbar"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/addressAppbar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pin Code"
+            android:id="@+id/postalCode"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="House No.,Building name*"
+            android:id="@+id/addressLine1"
+            android:layout_below="@id/postalCode"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Road Name,Area,Colony*"
+            android:id="@+id/addressLine2"
+            android:layout_below="@id/addressLine1"
+            />
+
+        <EditText
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:hint="City"
+            android:id="@+id/city"
+            android:layout_below="@id/addressLine2"
+            />
+        <EditText
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:hint="State"
+            android:id="@+id/state"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/addressLine2"
+            android:layout_toEndOf="@id/city"
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Landmark"
+            android:id="@+id/landMark"
+            android:layout_below="@id/city"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:id="@+id/name"
+            android:layout_below="@id/landMark"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="10 digit ph number"
+            android:id="@+id/phoneNumber"
+            android:layout_below="@id/name"
+            />
+        <Button
+            android:onClick="addAddressToDatabase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phoneNumber"
+            android:text="sumbit"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

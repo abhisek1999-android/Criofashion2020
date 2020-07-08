@@ -20,17 +20,20 @@
       android:layout_marginTop="80dp"
       />
 
+
+    <!--email login fild-->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_below="@id/appName"
         android:visibility="gone"
+        android:id="@+id/emailLoginLayout"
         >
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/appName"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         app:errorEnabled="true"
@@ -116,6 +119,11 @@
         android:textStyle="bold" />
     </RelativeLayout>
 
+
+
+
+
+<!--sign in with email button-->
 <Button
     android:layout_width="350dp"
     android:layout_height="90dp"
@@ -127,9 +135,10 @@ android:layout_marginTop="20dp"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:id="@+id/signIn_withEmail"
+    android:onClick="signInEmailButtonClicked"
 
     />
-
+    <!--sign in with google button-->
     <Button
 
         android:background="@drawable/google_button_bg"

@@ -31,6 +31,8 @@ public class User_Account_Fragment extends Fragment {
 
     private Button createAccountButon;
 
+    private Button testingtButon;
+
     private CardView logoutCardView;
 
     @Nullable
@@ -46,6 +48,8 @@ public class User_Account_Fragment extends Fragment {
         logoutCardView=mView.findViewById(R.id.logout_user);
 
         createAccountButon=mView.findViewById(R.id.signupPageIntent);
+
+        testingtButon=mView.findViewById(R.id.openTestingPage);
 
         mCurrentUser=mAuth.getCurrentUser();
 
@@ -69,15 +73,15 @@ public class User_Account_Fragment extends Fragment {
 
 
 
-
+//intenting to login
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(),UserLoginActivity.class);
+              Intent intent=new Intent(getContext(),UserLoginActivity.class);
                 startActivity(intent);
             }
         });
-
+//intenting to create account
         createAccountButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +97,14 @@ public class User_Account_Fragment extends Fragment {
                 FirebaseAuth.getInstance().signOut();
                 mCurrentUser=null;
 
+            }
+        });
+
+        testingtButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),AddressAddingActivity.class);
+                startActivity(intent);
             }
         });
 

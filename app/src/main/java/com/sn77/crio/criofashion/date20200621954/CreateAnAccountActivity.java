@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -35,10 +36,12 @@ public class CreateAnAccountActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private Button sign_inButton;
 
-    private Button next_Button,signInWithGoogle;
+    private Button next_Button,signInWithGoogle,signin_withEmail;
     String userId,user_Password,passwordConf;
 
     GoogleSignInClient mGoogleSignInClient;
+
+    RelativeLayout emailLoginLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,10 @@ public class CreateAnAccountActivity extends AppCompatActivity {
         sign_inButton=findViewById(R.id.signin_button);
 
         signInWithGoogle=findViewById(R.id.signIn_withGoogle);
+
+        signin_withEmail=findViewById(R.id.signIn_withEmail);
+
+        emailLoginLayout=findViewById(R.id.emailLoginLayout);
 
         // Build a GoogleSignInClient with the options specified by gso.
 
@@ -98,6 +105,9 @@ public class CreateAnAccountActivity extends AppCompatActivity {
 
             }
         });
+
+
+
 
     }
 //step3
@@ -147,18 +157,14 @@ public class CreateAnAccountActivity extends AppCompatActivity {
     }
 //last step
     private void updateUI(FirebaseUser user) {
-        Intent intent=new Intent(getApplicationContext(),MainActionPage.class);
+        Intent intent=new Intent(getApplicationContext(),UserDetailsActivity.class);
         startActivity(intent);
 
     }
 
-
+// sign  up with email process ........................................
     public  void signUpClicked(View view){
 
-
-       // userId_Email=findViewById(R.id.user_id);
-      //  userPassword=findViewById(R.id.user_password);
-       // userPasswordConf=findViewById(R.id.user_password_conf);
 
         userId=userId_Email.getEditText().getText().toString();
 
@@ -191,7 +197,6 @@ public class CreateAnAccountActivity extends AppCompatActivity {
                                     userPasswordConf.setEnabled(false);
                                     sign_inButton.setVisibility(View.GONE);
                                     next_Button.setVisibility(View.VISIBLE);
-
 
                                 }
                                 else {
@@ -227,9 +232,7 @@ public class CreateAnAccountActivity extends AppCompatActivity {
 
 
         userId = userId_Email.getEditText().getText().toString();
-
         user_Password = userPassword.getEditText().getText().toString();
-
         currentUser = mAuth.getCurrentUser();
 
 
@@ -242,7 +245,7 @@ public class CreateAnAccountActivity extends AppCompatActivity {
 
                     if (currentUser.isEmailVerified()){
 
-                        Intent intent=new Intent(getApplicationContext(),MainActionPage.class);
+                        Intent intent=new Intent(getApplicationContext(),UserDetailsActivity.class);
                         startActivity(intent);
                     }
                     else
@@ -255,6 +258,14 @@ public class CreateAnAccountActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    public void signInEmailButtonClicked(View view) {
+
+        signin_withEmail.setVisibility(View.GONE);
+        signInWithGoogle.setVisibility(View.GONE);
+        emailLoginLayout.setVisibility(View.VISIBLE);
 
     }
 }

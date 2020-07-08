@@ -28,6 +28,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -67,7 +68,7 @@ public class Product_Fragment extends Fragment {
         relativeSearchLayout=mView.findViewById(R.id.layoutForSearch);
 
         productlistRecyclerView.hasFixedSize();
-        productlistRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        productlistRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
         horizontalRecyclerView.hasFixedSize();
         horizontalRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -291,8 +292,6 @@ public class Product_Fragment extends Fragment {
             mview=itemView;
             //productNameSmall=itemView.findViewById(R.id.itemNameSmall);
             itemImageViewSmall=itemView.findViewById(R.id.itemImageSmall);
-
-
 
 
         }
