@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/colorAccent">
+
+
+
+
+
+
+    <com.borutsky.neumorphism.NeumorphicFrameLayout
+        android:id="@+id/secondBlock"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:clipChildren="false"
+        android:text="Hello World!"
+        app:background_color="@color/colorAccent"
+        app:corner_radius="40dp"
+     android:layout_centerHorizontal="true"
+        app:shape="rectangle"
+        app:state="convex"
+        android:elevation="0dp"
+        android:layout_centerInParent="true"
+        >
+
+        <com.borutsky.neumorphism.NeumorphicFrameLayout
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            app:background_color="@color/colorAccent"
+            app:corner_radius="40dp"
+            app:shape="rectangle"
+            app:state="concave"
+            android:elevation="0dp"
+            android:id="@+id/button"
+
+            >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GO!"
+
+
+            android:textSize="70sp"
+            android:layout_gravity="center"
+            android:textColor="#fff"
+            />
+
+
+
+        </com.borutsky.neumorphism.NeumorphicFrameLayout>
+
+    </com.borutsky.neumorphism.NeumorphicFrameLayout>
+
+</RelativeLayout>

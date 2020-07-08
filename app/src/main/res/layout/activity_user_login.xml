@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserLoginActivity">
+
+
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Log in!"
+    android:textSize="40sp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="150dp"
+    android:textStyle="bold"
+    android:id="@+id/justText"
+    />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/justText"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:errorEnabled="true"
+
+        android:id="@+id/user_id"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email_id"
+            android:inputType="textEmailAddress"
+
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_id"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:errorEnabled="true"
+        android:id="@+id/user_password"
+        app:passwordToggleEnabled="true"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textEmailAddress"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/user_password"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_background"
+        android:text="Log in"
+        android:textStyle="bold"
+        android:textColor="#fff"
+
+        />
+
+    <TextView
+        android:id="@+id/createAccount_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create an Account"
+        android:layout_below="@id/login_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#1976d2"
+        />
+
+    <TextView
+        android:id="@+id/forgotPassword_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?Click Here"
+        android:layout_below="@id/createAccount_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textColor="#37474f"
+        />
+
+
+</RelativeLayout>

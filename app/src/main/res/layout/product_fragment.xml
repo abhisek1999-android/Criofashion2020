@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#E4E4E4">
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/productAppBar"
+      android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/baner1"
+        android:background="@drawable/menuedown"
+        android:padding="5dp"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/layoutForSearch"
+        android:layout_width="match_parent"
+        android:layout_height="361dp"
+        android:layout_below="@id/banner"
+        android:visibility="gone">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cardElevation="0dp">
+            <!--For search bar-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_bg_color">
+
+                <EditText
+                    android:id="@+id/searchItem"
+                    android:layout_width="344dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:hint="Ask me!"
+                    android:padding="15dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/searchItemButton"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toEndOf="@id/searchItem"
+                    android:background="@drawable/button_bg_color"
+                    android:onClick="searchItemButton"
+                    android:src="@drawable/ic_baseline_search_24" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutForSearch"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/banner">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/horizontalLayout">
+
+                <TextView
+                    android:id="@+id/describeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:padding="7dp"
+                    android:text="Only For You"
+                    android:textAlignment="center"
+
+                    android:textSize="30dp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/productList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/describeText" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/horizontalLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:scrollbars="none"
+
+
+                />
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView><!--search bar end-->
+
+
+    <include
+        android:id="@+id/productAppBar"
+        layout="@layout/app_bar_layout" />
+</RelativeLayout>
