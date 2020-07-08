@@ -75,7 +75,7 @@ public class AddressAddingActivity extends AppCompatActivity {
             }
         });
 
-  ;//modify this
+
 
 
     }
@@ -144,7 +144,7 @@ public class AddressAddingActivity extends AppCompatActivity {
                 public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                     if (databaseError==null){
 
-                        Toast.makeText(AddressAddingActivity.this, "Address Recorded Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddressAddingActivity.this, " Recorded Successfully", Toast.LENGTH_SHORT).show();
                         Intent intent=new Intent(getApplicationContext(),MainActionPage.class);
                         startActivity(intent);
                     }
