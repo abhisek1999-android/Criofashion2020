@@ -15,16 +15,16 @@ import com.gpfreetech.neumorphism.Neumorphism;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
 
 
-        NeumorphicFrameLayout button =findViewById(R.id.button);
+    NeumorphicFrameLayout button =findViewById(R.id.button);
 
-        button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), android.R.color.transparent));
+    button.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), android.R.color.transparent));
        /* new Neumorphism(this)
                 //set views you want to style in comma seperated format list
                 .setViews(button,editText)
@@ -34,19 +34,18 @@ public class MainActivity extends AppCompatActivity {
                 .withCurvedSurface() // optional
                  // optional
                 //optional
-
                 .withRoundedCorners(20)
                 .build();*/
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(getApplicationContext(),MainActionPage.class);
-                startActivity(intent);
-            }
-        });
+    button.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent =new Intent(getApplicationContext(),MainActionPage.class);
+        startActivity(intent);
+      }
+    });
 
-    }
+  }
 
 
 

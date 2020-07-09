@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/drawer_yourAccount"
+        android:icon="@drawable/ic_card_user_details"
+        android:title="Your Account" />
+
+
+    <item android:id="@+id/drawer_orders"
+        android:icon="@drawable/ic_order"
+        android:title="Orders" />
+
+    <item android:id="@+id/drawer_cart"
+        android:icon="@drawable/ic_baseline_add_shopping_cart_24"
+        android:title="Cart" />
+
+    <item android:id="@+id/drawer_wishlist"
+        android:icon="@drawable/ic_tag"
+        android:title="Wish List" />
+
+
+    <item android:id="@+id/drawer_paymentOptions"
+        android:icon="@drawable/ic_credit_payment"
+        android:title="Payment Options" />
+
+
+
+    <item android:id="@+id/drawer_addressOptions"
+        android:icon="@drawable/ic_house"
+        android:title="Address Options" />
+
+
+</menu>
+
+
+
+<!-- t&c, terms of use, privacy policy,return policy,FAQ,support,Career options,financial help,settings-->

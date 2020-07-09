@@ -1,55 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:background="#e4e4e4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:onClick="intentToProductDetails"
 
     >
 
-
-
-<androidx.cardview.widget.CardView
-    android:layout_width="150dp"
-    android:layout_height="150dp"
+    <androidx.cardview.widget.CardView
+    android:layout_width="220dp"
+    android:layout_height="300dp"
    android:id="@+id/cardImage"
     app:cardElevation="0dp"
-    app:cardBackgroundColor="#e4e4e4">
+        app:cardBackgroundColor="#00000000"
+        android:paddingRight="20dp"
+    >
 
 <RelativeLayout
-    android:layout_width="150dp"
-    android:layout_height="150dp"
-    android:background="@drawable/cave_card"
-    android:layout_gravity="center">
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@mipmap/product_base"
+>
+  <ImageButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@mipmap/circle_up"
+      android:layout_marginLeft="10dp"
+      android:layout_marginTop="10dp"
+      android:src="@drawable/ic_baseline_add_shopping_cart_24"
+      android:id="@+id/addCart"
+      android:onClick="addToCart"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/circle_up"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_baseline_star_border_24"
+        android:id="@+id/addWishList"
+        android:onClick="addToWishList"
+        android:layout_marginHorizontal="148dp"/>
 
     <ImageView
         android:id="@+id/itemImageView"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:src="@drawable/shirtfront" />
+        android:src="@drawable/model"
+        />
 
 
 </RelativeLayout>
-></androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>
 
 
        <TextView
            android:id="@+id/productName"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-         android:layout_toEndOf="@+id/cardImage"
+         android:layout_below="@+id/cardImage"
            android:text="Item Name"
-           android:layout_marginTop="35sp"
+           android:layout_marginTop="10dp"
            android:textSize="20sp"
-           android:layout_marginLeft="10sp"
+         android:gravity="center"
+           android:layout_centerHorizontal="true"
                />
 
         <TextView
             android:id="@+id/productPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/cardImage"
+            android:layout_below="@+id/cardImage"
             android:text="Price"
             android:layout_marginTop="60sp"
             android:textSize="20sp"

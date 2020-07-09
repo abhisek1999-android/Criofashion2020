@@ -103,7 +103,7 @@ public class User_Account_Fragment extends Fragment {
         testingtButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(),AddressAddingActivity.class);
+                Intent intent=new Intent(getContext(),ProductDetailsPage.class);
                 startActivity(intent);
             }
         });

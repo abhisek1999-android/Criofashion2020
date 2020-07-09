@@ -1,3 +1,4 @@
+
 package com.sn77.crio.criofashion.date20200621954;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,9 +7,9 @@ import android.os.Bundle;
 
 public class UserLoginActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_login);
-    }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_user_login);
+  }
 }

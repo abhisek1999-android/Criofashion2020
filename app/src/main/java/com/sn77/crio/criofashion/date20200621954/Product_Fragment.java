@@ -17,10 +17,19 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.gpfreetech.neumorphism.Neumorphism;
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +47,7 @@ public class Product_Fragment extends Fragment {
 
 
     private DatabaseReference productRef;
+    private DatabaseReference rootRef;
     private RecyclerView productlistRecyclerView;
     private RecyclerView horizontalRecyclerView;
     private View mView;
@@ -47,13 +57,16 @@ public class Product_Fragment extends Fragment {
     private ImageButton searchItemButton;
 
     private RelativeLayout relativeSearchLayout;
-
+    private RelativeLayout relativeSearchLayoutInner;
     private ImageButton crossButton;
 
     private TextView searchResultTextView;
 
     Animation animation,searchButtonAnimation;
 
+    SliderView sliderView;
+    private SliderAdapterExample adapter;
+    ArrayList<String> listItem;
 
 
     @Nullable
@@ -62,11 +75,14 @@ public class Product_Fragment extends Fragment {
 
         mView=inflater.inflate(R.layout.product_fragment,container,false);
         productRef= FirebaseDatabase.getInstance().getReference().child("products");
+        rootRef=FirebaseDatabase.getInstance().getReference();
+        listItem=new ArrayList<String>();
+
         productlistRecyclerView=mView.findViewById(R.id.productList);
         horizontalRecyclerView=mView.findViewById(R.id.horizontalLayout);
 
         relativeSearchLayout=mView.findViewById(R.id.layoutForSearch);
-
+        relativeSearchLayoutInner=mView.findViewById(R.id.layoutForSearchInner);
         productlistRecyclerView.hasFixedSize();
         productlistRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
 
@@ -81,6 +97,54 @@ public class Product_Fragment extends Fragment {
         animation = AnimationUtils.loadAnimation(getContext(), R.anim.slide_down);
         searchButtonAnimation=AnimationUtils.loadAnimation(getContext(),R.anim.zoom_in);
 
+//     this portion is for sliding image..... here i use this lib -->> https://github.com/smarteist/Android-Image-Slider  an adapter and a getter setter class also created for the sliding   -->>
+        sliderView=mView.findViewById(R.id.imageSlider);
+        adapter = new SliderAdapterExample(this);
+        sliderView.setSliderAdapter(adapter);
+        sliderView.setIndicatorAnimation(IndicatorAnimationType.DROP); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION
+        );
+        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        sliderView.setIndicatorSelectedColor(Color.WHITE);
+        sliderView.setIndicatorUnselectedColor(Color.GRAY);
+        sliderView.setScrollTimeInSec(3);
+        sliderView.setAutoCycle(true);
+        sliderView.startAutoCycle();
+
+
+        rootRef.child("Banners").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.exists()){
+
+                    listItem.clear();
+                    for (DataSnapshot childSnapshot: dataSnapshot.getChildren()) {
+
+                        String urls=childSnapshot.getValue(String.class);
+                        listItem.add(urls);
+                    }
+                }
+
+                List<SliderItem> sliderItemList = new ArrayList<>();
+                for (int i = 0; i < listItem.size(); i++) {
+                    SliderItem sliderItem = new SliderItem();
+                    sliderItem.setDescription("Slider Item " + i);
+                    sliderItem.setImageUrl(listItem.get(i));
+                    sliderItemList.add(sliderItem);
+                }
+                adapter.renewItems(sliderItemList);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+// >> upto this for sliding
 
         //for fragment we have to use ((AppCompatActivity)getActivity()) this for set & get support ActionBar
         Toolbar mToolBar = mView.findViewById(R.id.productAppBar);
@@ -104,7 +168,7 @@ public class Product_Fragment extends Fragment {
           public void onClick(View v) {
 
               relativeSearchLayout.setVisibility(View.VISIBLE);
-
+              relativeSearchLayoutInner.setVisibility(View.VISIBLE);
               relativeSearchLayout.clearAnimation();
               relativeSearchLayout.setAnimation(animation);
               relativeSearchLayout.getAnimation().start();
@@ -132,7 +196,6 @@ public class Product_Fragment extends Fragment {
                       searchResultTextView.setVisibility(View.VISIBLE);
                       searchResultTextView.setText("Search result for "+searchItem);
                   } else {
-                      searchItemButton.setAnimation(searchButtonAnimation);
                       Toast.makeText(getContext(),"Please enter some Thing", Toast.LENGTH_SHORT).show();
                       relativeSearchLayout.setVisibility(View.VISIBLE);
                      // displayItems("true");
@@ -160,10 +223,12 @@ public class Product_Fragment extends Fragment {
               crossButton.getAnimation().start();
               relativeSearchLayout.setVisibility(View.GONE);
               searchItemText.setText("");
-              displayItems("true");
+              searchItemText.setVisibility(View.INVISIBLE);
               crossButton.setVisibility(View.GONE);
               searchButtonAppbar.setVisibility(View.VISIBLE);
-              searchResultTextView.setVisibility(View.GONE);
+              relativeSearchLayoutInner.setVisibility(View.GONE);
+              displayItems("true");
+
 
           }
       });
@@ -222,7 +287,7 @@ public class Product_Fragment extends Fragment {
 
             }
         };
-        productlistRecyclerView.setAdapter(firebaseRecyclerAdapter);
+        productlistRecyclerView.setAdapter(firebaseRecyclerAdapter);                                                 //Recycler Aapter
         firebaseRecyclerAdapter.startListening();
 
 //adapter for top elements.......................................................................................................................................
@@ -248,7 +313,8 @@ public class Product_Fragment extends Fragment {
                 return viewHolder;
 
             }
-        };horizontalRecyclerView.setAdapter(firebaseRecyclerAdapterSmall);
+        };
+        horizontalRecyclerView.setAdapter(firebaseRecyclerAdapterSmall);
         firebaseRecyclerAdapterSmall.startListening();
     }
 
@@ -292,6 +358,8 @@ public class Product_Fragment extends Fragment {
             mview=itemView;
             //productNameSmall=itemView.findViewById(R.id.itemNameSmall);
             itemImageViewSmall=itemView.findViewById(R.id.itemImageSmall);
+
+
 
 
         }

@@ -1,7 +1,9 @@
 package com.sn77.crio.criofashion.date20200621954;
 
 import android.content.Context;
+
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -26,7 +28,9 @@ public class Home_Fragment extends Fragment {
     private View mView;
     private ImageButton cartButton;
     private ImageButton notificationButton;
+
     private ImageButton menuButton;
+
 
     @Nullable
     @Override
@@ -51,6 +55,7 @@ public class Home_Fragment extends Fragment {
 
         cartButton=mView.findViewById(R.id.cartButton);
         notificationButton=mView.findViewById(R.id.notificationButton);
+
         menuButton=mView.findViewById(R.id.menuButton);
 
 
@@ -74,6 +79,7 @@ public class Home_Fragment extends Fragment {
          return mView;
 
     }
+
 
     private void intentSettings() {
 
@@ -114,3 +120,6 @@ ValueEventListener valueEventListener = new ValueEventListener() {
 };
 imageUrlsRef.addListenerForSingleValueEvent(valueEventListener);
 */
+
+
+

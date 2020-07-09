@@ -1,5 +1,7 @@
 package com.sn77.crio.criofashion.date20200621954;
 
+import android.widget.Adapter;
+
 public class Products {
 
     public Products(){
@@ -11,10 +13,6 @@ public class Products {
         this.price = price;
         this.description = description;
     }
-
-    String name;
-   String price;
-   String description;
 
     public String getName() {
         return name;
@@ -39,6 +37,11 @@ public class Products {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    String name;
+   String price;
+   String description;
+
 
 
 

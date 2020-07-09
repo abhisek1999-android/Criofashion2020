@@ -60,12 +60,12 @@ public class UserDetailsActivity extends AppCompatActivity {
                 if (valid) {
                     //Toast.makeText(UserDetailsActivity.this, "valid", Toast.LENGTH_LONG).show();
                     final String deviceToken= FirebaseInstanceId.getInstance().getToken();
-                    HashMap<String,String> userHashMap=new HashMap<>();
+                    HashMap userHashMap=new HashMap<>();
                     userHashMap.put("user_name",userName.getText().toString());
                     userHashMap.put("user_email",mCurrentUser.getEmail());
                     userHashMap.put("phone_number",phoneEditText.getPhoneNumber());
                     userHashMap.put("device_token",deviceToken);
-                    userHashMap.put("created_at", String.valueOf(ServerValue.TIMESTAMP));
+                    userHashMap.put("created_at", ServerValue.TIMESTAMP);
                     userDataBaseRef.child(mCurrentUser.getUid()).setValue(userHashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
